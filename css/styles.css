@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.ico-bilib {height: 45px;left: 0;width: 135px;background: url('/img/head.png') 0 0;background-repeat:no-repeat;}
+.ico-asar  {height: 45px;left: 45px;width: 150px;background: url('/img/head.png') -134px 0;background-repeat:no-repeat;}
+
+div.box-spacer {margin-bottom:10px;}
+div.box-bilib {border:1px solid #00f;padding:5px;}
+div.box-asar {border:1px solid #f00;padding:5px;}
+
+/** Modal sizes */
+.modal-big {
+    width: 700px;
+    margin-left: -350px;
+}
+@media (max-width: 767px) {
+    .modal-big {
+        width: auto;
+        margin-left: auto;
+    }
+}
+
+/* Button groups for input radio */
+div.btn-group[data-toggle=buttons-radio] input[type=radio] {
+	display:    block;
+	position:   absolute;
+	top:        0;
+	left:       0;
+	width:      100%;
+	height:     100%;
+	opacity:    hidden;
+	visibility: hidden;
+}
+
+.footer {
+	position: relative;
+	padding: 70px 10px 10px;
+	margin-top: 70px;
+	border-top: 1px solid #E5E5E5;
+	background-color: whiteSmoke;
+}
