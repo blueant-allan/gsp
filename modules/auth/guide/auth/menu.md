@@ -1,6 +1,7 @@
 ## [Auth]()
-- [Configuration](config)
+- [Config](config)
+- [User Model](user)
+- [Register Users](register)
 - [Log in and out](login)
-- Drivers
-  - [File](driver/file)
-  - [Developing](driver/develop)
+- [Edit User](edit)
+- [Using Roles](roles)

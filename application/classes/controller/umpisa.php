@@ -4,10 +4,9 @@ class Controller_Umpisa extends Controller_Template_Public {
 
 	public function action_index()
 	{
-		$bilib = Orm::factory('article')->where('category','=',1)->find_all();
+		$bilib = ORM::factory('article')->where('category','=',1)->find_all();
 		$asar  = Orm::factory('article')->where('category','=',2)->find_all();
 
-		
 		$view = View::factory('public/umpisa');
 		$view->bind('bilib',$bilib);
 		$view->bind('asar',$asar);

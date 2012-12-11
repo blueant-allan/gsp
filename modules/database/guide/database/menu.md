@@ -1,7 +1,7 @@
 ## [Database]()
 - [Configuration](config)
 - [Querying](query)
-   - [Parameterized Statements](query/parameterized)
+   - [Prepared Statements](query/prepared)
    - [Query Builder](query/builder)
 - [Results](results)
 - [Examples](examples)

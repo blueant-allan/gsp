@@ -2,14 +2,13 @@
 include_once(Kohana::find_file('tests/cache/arithmetic', 'CacheArithmeticMethods'));
 
 /**
- * @package    Kohana/Cache/Memcache
- * @group      kohana
- * @group      kohana.cache
+*  @package    Kohana/Cache
  * @category   Test
  * @author     Kohana Team
- * @copyright  (c) 2009-2012 Kohana Team
+ * @copyright  (c) 2009-2011 Kohana Team
  * @license    http://kohanaphp.com/license
  */
+
 class Kohana_CacheArithmeticMemcacheTest extends Kohana_CacheArithmeticMethodsTest {
 
 
@@ -33,25 +32,26 @@ class Kohana_CacheArithmeticMemcacheTest extends Kohana_CacheArithmeticMethodsTe
 		{
 			$this->markTestSkipped('Memcache PHP Extension is not available');
 		}
-		if ( ! $config = Kohana::$config->load('cache.memcache'))
+
+		if ( ! $config = Kohana::$config->load('cache')->memcache)
 		{
 			$this->markTestSkipped('Unable to load Memcache configuration');
 		}
 
 		$memcache = new Memcache;
-		if ( ! $memcache->connect($config['servers']['local']['host'], 
-			$config['servers']['local']['port']))
+		if ( ! $memcache->connect($config['servers'][0]['host'], 
+			$config['servers'][0]['port']))
 		{
 			$this->markTestSkipped('Unable to connect to memcache server @ '.
-				$config['servers']['local']['host'].':'.
-				$config['servers']['local']['port']);
+				$config['servers'][0]['host'].':'.
+				$config['servers'][0]['port']);
 		}
 
 		if ($memcache->getVersion() === FALSE)
 		{
 			$this->markTestSkipped('Memcache server @ '.
-				$config['servers']['local']['host'].':'.
-				$config['servers']['local']['port'].
+				$config['servers'][0]['host'].':'.
+				$config['servers'][0]['port'].
 				' not responding!');
 		}
 
