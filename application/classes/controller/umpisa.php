@@ -4,6 +4,7 @@ class Controller_Umpisa extends Controller_Template_Public {
 
 	public function action_index()
 	{
+
 		$bilib = ORM::factory('article')->where('category','=',1)->find_all();
 		$asar  = Orm::factory('article')->where('category','=',2)->find_all();
 
