@@ -21,17 +21,12 @@ class Controller_Facebook extends Controller {
 				$user->picture       = $fb->get('pic');
 				$user->save();
 
-//				echo 'here';
-//				echo Html::image($user->picture,array('height' => '60'));
-
 				Session::instance()->set('user',array(
 					'id'       => $user->id,
 					'username' => $user->username,
 					'name'     => $user->name,
 					'picture'  => $user->picture
 				));
-//				Helper_Util::pr($_SESSION);
-
 				$this->request->redirect();
 			}
 			else
@@ -58,36 +53,16 @@ class Controller_Facebook extends Controller {
 
 	public function action_logout()
 	{
-
-
-
-		try
+		$user_session = Session::instance()->get('user',NULL);
+		if ($user_session)
 		{
 			$fb = FacebookAuth::factory();
-		}
-		catch (Exception $ex)
-		{
-			echo $ex->getMessage();
+			$fb->destroy();
+			Session::instance()->delete('user');
 		}
 
-
-
-//		$logout_url = $fb->logout_url();
-//		$session = Session::instance()->get('user',NULL);
-
-//		$fb->destroy();
-//		Helper_Util::pr($fb);
-
-//		if ($session)
-//		{
-//			Session::instance()->delete('user');
-//		}
-
-//		echo $logout_url;
-//		$this->request->redirect($logout_url);
+		$this->request->redirect();
 	}
-
 }
-
 /* End of file facebook.php */
 /* Location: ./application/classes/controller/facebook.php */
