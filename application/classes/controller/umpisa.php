@@ -18,18 +18,8 @@ class Controller_Umpisa extends Controller_Template_Public {
 //		Helper_Util::pr($session);
 	}
 
-	public function action_logout()
-	{
-		$fb         = FacebookAuth::factory();
-		$logout_url = $fb->logout_url();
-		//$fb->destroy();
-
-		echo $logout_url;
-	}
-
 	public function action_login()
 	{
-		//echo 'here';
 		$this->template->content = View::factory('public/login');
 		$this->template->styles  = array('styles');
 	}

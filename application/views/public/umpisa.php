@@ -5,7 +5,6 @@
 				<div style="margin-left:auto;margin-right:auto" class="ico-bilib">&nbsp;</div>
 			</div>
 
-
 		<?php foreach ($bilib as $item): ?>
 			<div class="row-fluid box-spacer">
 				<div class="span12 box-bilib">
@@ -13,14 +12,6 @@
 				</div>
 			</div>
 		<?php endforeach; ?>
-
-			<!--div class="row-fluid box-spacer">
-				<div class="span12 box-bilib">here</div>
-			</div>
-			<div class="row-fluid box-spacer">
-				<div class="span12 box-bilib">here2</div>
-			</div-->
-
 		</div>
 
 		<div class="span6">
@@ -28,12 +19,13 @@
 				<div style="margin-left:auto;margin-right:auto" class="ico-asar">&nbsp;</div>
 			</div>
 
+		<?php foreach ($asar as $item): ?>
 			<div class="row-fluid box-spacer">
-				<div class="span12 box-asar">here</div>
+				<div class="span12 box-asar">
+					<p><?php echo $item->title; ?></p>
+				</div>
 			</div>
-			<div class="row-fluid box-spacer">
-				<div class="span12 box-asar">here</div>
-			</div>
+		<?php endforeach; ?>
 
 		</div>
 	</div>
