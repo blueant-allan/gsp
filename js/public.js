@@ -24,6 +24,7 @@ $(document).ready(function () {
 					alert(data.message);
 					$('#post-modal-container').modal('hide')
 					clearForm();
+					location.reload(); // reloads the page
 				}
 			,'json');
 		});
