@@ -12,11 +12,19 @@
 					echo '<p>';
 					echo '<strong>',$item->title,'</strong> by ';
 					echo  Html::anchor(
-							'http://www.facebook.com/'.$item->user->username,
+							'facebook.com/'.$item->user->username,
 							empty($item->user->name) ? 'Unknown' : $item->user->name,
 							array(
 								'title'  => 'View profile',
 								'target' => '_blank'));
+					if ($item->created == $item->modified)
+					{
+						echo ' created ',date('F m, Y',  strtotime($item->created));
+					}
+					else
+					{
+						echo ' modified ',date('F m, Y',  strtotime($item->modified));
+					}
 					echo '</p>';
 					echo '<p>',$item->description,'</p>';
 					echo Html::image($item->picture,array('style' => 'width:320px;'));
@@ -43,6 +51,14 @@
 							array(
 								'title'  => 'View profile',
 								'target' => '_blank'));
+					if ($item->created == $item->modified)
+					{
+						echo ' created ',date('F m, Y',  strtotime($item->created));
+					}
+					else
+					{
+						echo ' modified ',date('F m, Y',  strtotime($item->modified));
+					}
 					echo '</p>';
 					echo '<p>',$item->description,'</p>';
 					echo Html::image($item->picture,array('style' => 'width:320px;'));
