@@ -2,6 +2,8 @@
 
 class Model_Article extends ORM {
 
+	protected $_belongs_to = array('user' => array());
+
 	public function save(Validation $validation = NULL)
 	{
 		if ($this->id)
