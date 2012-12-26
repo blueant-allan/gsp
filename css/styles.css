@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+body {font-size:12px}
 .ico-bilib {height: 45px;left: 0;width: 135px;background: url('/img/head.png') 0 0;background-repeat:no-repeat;}
 .ico-asar  {height: 45px;left: 45px;width: 150px;background: url('/img/head.png') -134px 0;background-repeat:no-repeat;}
 
