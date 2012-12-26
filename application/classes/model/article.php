@@ -12,7 +12,8 @@ class Model_Article extends ORM {
 		}
 		else
 		{
-			$this->created = date('Y-m-d H:i:s');
+			$this->created  = date('Y-m-d H:i:s');
+			$this->modified = $this->created;
 		}
 
 		parent::save();

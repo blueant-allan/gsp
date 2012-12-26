@@ -6,7 +6,7 @@
 			</div>
 			<div class="modal-body">
 			<?php
-				echo Form::open('#',array('id' => 'frmPosting', 'class' => 'form-horizontal'));
+				echo Form::open('/post',array('id' => 'frmPosting', 'class' => 'form-horizontal','enctype' => 'multipart/form-data'));
 				echo '<legend>Kompletuhin ang detalye</legend>';
 
 				echo '<div class="control-group">';
@@ -56,14 +56,13 @@
 
 				echo '</div>';
 				echo '</div>';
-
-				echo Form::close();
 			?>
 			</div>
 			<div class="modal-footer">
 			<?php
 				echo Form::button('submit','Save',array('class' => 'btn btn-primary','type' => 'submit','id' => 'btnPostadd'));
 				echo Html::anchor('#','Close',array('class' => 'btn','onclick' => "$('#post-modal-container').modal('hide');"));
+				echo Form::close();
 			?>
 			</div>
 		</div>

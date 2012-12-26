@@ -15,21 +15,7 @@ $(document).ready(function () {
 		$('#source').val('');
 		$('#pictype-link').attr("checked", "checked");
 	});
-
-	if ($('#frmPosting').length > 0) {
-
-		$('#btnPostadd').click(function () {
-			$.post('post',$('#frmPosting').serialize(),
-				function (data) {
-					alert(data.message);
-					$('#post-modal-container').modal('hide')
-					clearForm();
-					location.reload(); // reloads the page
-				}
-			,'json');
-		});
-	}
-
+	
 });
 
 function clearForm() {

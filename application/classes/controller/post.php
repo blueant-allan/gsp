@@ -49,13 +49,7 @@ class Controller_Post extends Controller {
 
 	public function action_index()
 	{
-		$result = array(
-			'status'  => 'INVALID',
-			'message' => 'Invalid api access.',
-			'tran_id' => 400
-		);
-
-		if ($this->request->is_ajax())
+		if ($this->request->post())
 		{
 			$session = Session::instance()->get('user',NULL);
 
@@ -87,26 +81,26 @@ class Controller_Post extends Controller {
 			));
 			$article->save();
 
+			// error checking after saving data and log what happen here
 			if ($article->id)
 			{
-				$result = array(
+				$log = array(
 					'id'      => $article->id,
 					'status'  => 'OK',
 					'message' => 'Article was posted successfully.',
 					'tran_id' => 700
 				);
+				$this->request->redirect();
 			}
 			else
 			{
-				$result = array(
+				$log = array(
 					'status'  => 'FAILED',
 					'message' => 'Article was not posted.',
 					'tran_id' => 401
 				);
 			}
 		}
-
-		echo json_encode($result);
 	}
 
 }
