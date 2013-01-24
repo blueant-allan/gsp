@@ -9,25 +9,32 @@
 			<div class="row-fluid box-spacer">
 				<div class="span12 box-bilib">
 				<?php
-					echo '<p>';
-					echo '<strong>',$item->title,'</strong> by ';
-					echo  Html::anchor(
-							'facebook.com/'.$item->user->username,
-							empty($item->user->name) ? 'Unknown' : $item->user->name,
-							array(
-								'title'  => 'View profile',
-								'target' => '_blank'));
+					echo '<div class="thumbnail">';
+					echo '<div class="caption">';
+					echo Html::anchor(
+						'http://facebook.com/'.$item->user->username,
+						Html::image($item->user->picture,array('style' => 'height:40px;margin-right:5px;')).$item->user->name,
+						array(
+							'title'  => 'View profile',
+							'target' => '_blank'));
+
 					if ($item->created == $item->modified)
 					{
-						echo ' created ',date('F m, Y',  strtotime($item->created));
+						echo '<p style="margin:0 45px;" class="muted">created ',date('F d, Y',  strtotime($item->created)),'</p>';
 					}
 					else
 					{
-						echo ' modified ',date('F m, Y',  strtotime($item->modified));
+						echo '<p style="margin:0 45px;" class="muted">modified ',date('F d, Y',  strtotime($item->modified)),'</p>';
 					}
-					echo '</p>';
-					echo '<p>',$item->description,'</p>';
-					echo Html::image($item->picture,array('style' => 'width:320px;'));
+
+					echo '<hr style="margin:3px 0;"><strong>',$item->title,'</strong> - ',$item->description;
+					echo '</div>';
+					echo Html::image(Helper_Piktyur::ENDPOINT.'photo/'.$item->picture);
+					echo '</div>';
+
+					echo '<div style="background-color:#EAF0FF;margin-top:2px;">';
+					echo 'testadfafadsfasfds';
+					echo '</div>';
 				?>
 				</div>
 			</div>
@@ -43,25 +50,28 @@
 			<div class="row-fluid box-spacer">
 				<div class="span12 box-asar">
 				<?php
-					echo '<p>';
-					echo '<strong>',$item->title,'</strong> by ';
-					echo  Html::anchor(
-							'http://www.facebook.com/'.$item->user->username,
-							empty($item->user->name) ? 'Unknown' : $item->user->name,
-							array(
-								'title'  => 'View profile',
-								'target' => '_blank'));
+					echo '<div class="thumbnail">';
+					echo '<div class="caption">';
+					echo Html::anchor(
+						'http://facebook.com/'.$item->user->username,
+						Html::image($item->user->picture,array('style' => 'height:40px;margin-right:5px;')).$item->user->name,
+						array(
+							'title'  => 'View profile',
+							'target' => '_blank'));
+
 					if ($item->created == $item->modified)
 					{
-						echo ' created ',date('F m, Y',  strtotime($item->created));
+						echo '<p style="margin:0 45px;" class="muted">created ',date('F d, Y',  strtotime($item->created)),'</p>';
 					}
 					else
 					{
-						echo ' modified ',date('F m, Y',  strtotime($item->modified));
+						echo '<p style="margin:0 45px;" class="muted">modified ',date('F d, Y',  strtotime($item->modified)),'</p>';
 					}
-					echo '</p>';
-					echo '<p>',$item->description,'</p>';
-					echo Html::image($item->picture,array('style' => 'width:320px;'));
+
+					echo '<hr style="margin:3px 0;"><strong>',$item->title,'</strong> - ',$item->description;
+					echo '</div>';
+					echo Html::image(Helper_Piktyur::ENDPOINT.'photo/'.$item->picture);
+					echo '</div>';
 				?>
 				</div>
 			</div>

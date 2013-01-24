@@ -33,20 +33,23 @@ class Controller_Post extends Controller {
 				$unlink_file = TRUE;
 			}
 
-			// i-upload ang image using gspi-ws
-			$ch = curl_init();
-			$options = array(
-				CURLOPT_URL => 'http://gspi/api/upload_photo',
-				CURLOPT_POST => 1,
-				CURLOPT_POSTFIELDS => $ws_image,
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_VERBOSE => 1
-			);
-			curl_setopt_array($ch, $options);
-			$response = curl_exec($ch);
-			curl_close($ch);
+//			// i-upload ang image using gspi-ws
+//			$ch = curl_init();
+//			$options = array(
+//				CURLOPT_URL => 'http://blueant.insomnia247.nl/gspi/api/upload_photo',
+//				CURLOPT_POST => 1,
+//				CURLOPT_POSTFIELDS => $ws_image,
+//				CURLOPT_RETURNTRANSFER => true,
+//				CURLOPT_VERBOSE => 1
+//			);
+//			curl_setopt_array($ch, $options);
+//			$response = curl_exec($ch);
+//			curl_close($ch);
+//
+//			$image = simplexml_load_string($response);
 
-			$image = simplexml_load_string($response);
+			$piktyur = new Helper_Piktyur;
+			$image = $piktyur->upload($ws_image);
 
 			$article = array(
 				'user_id'     => 99,
@@ -111,19 +114,8 @@ class Controller_Post extends Controller {
 			}
 
 			// i-upload ang image using gspi-ws
-			$ch = curl_init();
-			$options = array(
-				CURLOPT_URL => 'http://gspi/api/upload_photo',
-				CURLOPT_POST => 1,
-				CURLOPT_POSTFIELDS => $ws_image,
-				CURLOPT_RETURNTRANSFER => true,
-				CURLOPT_VERBOSE => 1
-			);
-			curl_setopt_array($ch, $options);
-			$response = curl_exec($ch);
-			curl_close($ch);
-
-			$image = simplexml_load_string($response);
+			$piktyur = new Helper_Piktyur;
+			$image = $piktyur->upload($ws_image);
 
 			$article = new Model_Article;
 			$article->values(array(
