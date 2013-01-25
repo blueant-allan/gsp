@@ -38,3 +38,19 @@ div.btn-group[data-toggle=buttons-radio] input[type=radio] {
 	border-top: 1px solid #E5E5E5;
 	background-color: whiteSmoke;
 }
+
+.yellow-highlight {
+	background-color:#F9FF9A;
+	margin-top:2px;
+	padding:2px 2px 2px 20px;
+}
+
+a.bcomment, a.bcomment:hover  {
+	color: #124FFF;
+	text-decoration: none;
+}
+
+a.acomment, a.acomment:hover  {
+	color: #FF5C5C;
+	text-decoration: none;
+}

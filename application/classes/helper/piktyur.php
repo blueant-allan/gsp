@@ -6,10 +6,11 @@ class Helper_Piktyur {
 	const ENDPOINT = 'http://blueant.insomnia247.nl/gspi/api/';
 
 	const RESOURCE_UPLOAD_PHOTO = 'upload_photo';
-	const RESOURCE_PHOTO        = '';
+	const RESOURCE_PHOTO        = 'photo/';
 
 	public function upload($data)
 	{
+		// TODO: sanity checks
 		$data['key'] = self::WS_KEY;
 
 		// i-upload ang image using gspi-ws

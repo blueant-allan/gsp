@@ -78,21 +78,12 @@ class Controller_Post extends Controller {
 		if ($this->request->post())
 		{
 			$session     = Session::instance()->get('user',NULL);
-			$ws_image    = array('key' => '0a82e8ef64084435841ee3073ddaeda8745787f9');
+			$ws_image    = array();
 			$unlink_file = FALSE;
 
 			// ayusin yung file uploads nung mga picture
 			if (isset($_FILES['source']['name']) && !empty($_FILES['source']['name']))
 			{
-//				$files = Validation::factory($_FILES);
-//				$directory = 'asset/i/';
-//
-//				// get extension name
-//				$file_tokens = explode('.',$files['source']['name']);
-//				$filename = date('mdyhms').'_00'.$session['id'].'_'.time().'.'.$file_tokens[1];
-//
-//				Upload::save($files['source'],$filename,$directory);
-//				$url = $directory.$filename;
 				$ws_image['photo']     = '@'.$_FILES['source']['tmp_name'];
 				$ws_image['name']      = $_FILES['source']['name'];
 			}
@@ -152,6 +143,37 @@ class Controller_Post extends Controller {
 				);
 			}
 		}
+	}
+
+	public function action_add_comment()
+	{
+//		echo $this->request->is_ajax();
+//		Helper_Util::pr($this->request->post());
+		if ($this->request->post() && $this->request->is_ajax())
+		{
+			$session = Session::instance()->get('user',NULL);
+			if ($session)
+			{
+				// post comment now
+				$result = array('here');
+			}
+			else
+			{
+				$result = array(
+					'status'  => 'ERROR',
+					'message' => 'User not login.'
+				);
+			}
+		}
+		else
+		{
+			$result = array(
+				'status'  => 'INVALID',
+				'message' => 'Invalid request.'
+			);
+		}
+
+		echo json_encode($result);
 	}
 
 }

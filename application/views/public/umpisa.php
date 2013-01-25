@@ -29,11 +29,14 @@
 
 					echo '<hr style="margin:3px 0;"><strong>',$item->title,'</strong> - ',$item->description;
 					echo '</div>';
-					echo Html::image(Helper_Piktyur::ENDPOINT.'photo/'.$item->picture);
+					echo Html::image(Helper_Piktyur::ENDPOINT.Helper_Piktyur::RESOURCE_PHOTO.$item->picture);
 					echo '</div>';
 
-					echo '<div style="background-color:#EAF0FF;margin-top:2px;">';
-					echo 'testadfafadsfasfds';
+					echo '<div class="yellow-highlight">';
+					echo Html::anchor('#','Sawsaw',array(
+						'class'   => 'bcomment alink',
+						'data-id' => $item->id
+					));
 					echo '</div>';
 				?>
 				</div>
@@ -70,7 +73,14 @@
 
 					echo '<hr style="margin:3px 0;"><strong>',$item->title,'</strong> - ',$item->description;
 					echo '</div>';
-					echo Html::image(Helper_Piktyur::ENDPOINT.'photo/'.$item->picture);
+					echo Html::image(Helper_Piktyur::ENDPOINT.Helper_Piktyur::RESOURCE_PHOTO.$item->picture);
+					echo '</div>';
+
+					echo '<div class="yellow-highlight">';
+					echo Html::anchor('#','Sawsaw',array(
+						'class' => 'acomment alink',
+						'data-id' => $item->id
+					));
 					echo '</div>';
 				?>
 				</div>

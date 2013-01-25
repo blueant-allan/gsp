@@ -14,24 +14,12 @@ class Controller_Umpisa extends Controller_Template_Public {
 
 		$this->template->content = $view;
 		$this->template->styles  = array('styles');
-//		$session = Session::instance()->get('user',NULL);
-//		Helper_Util::pr($session);
 	}
 
 	public function action_login()
 	{
 		$this->template->content = View::factory('public/login');
 		$this->template->styles  = array('styles');
-	}
-
-	public function action_post()
-	{
-		//$a = new Model_Article;
-		//Helper_Util::pr($a);
-
-		//echo time();
-		echo date('Y-m-d H:i:s');
-		exit;
 	}
 }
 /* End of file umpisa.php */

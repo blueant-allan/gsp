@@ -15,7 +15,29 @@ $(document).ready(function () {
 		$('#source').val('');
 		$('#pictype-link').attr("checked", "checked");
 	});
-	
+
+	$(".alink").click(function () {
+		$.post(
+			'post/add_comment',
+			{"id" : $(this).data("id")},
+			function (data) {
+				switch (data.status) {
+					case "ERROR":
+						window.location.replace("/facebook");
+						break;
+					case "INVALID":
+						window.location.replace("/");
+						break;
+					case "OK":
+						console.log(data);
+						break;
+				}
+			},
+			'json');
+
+		return false;
+	});
+
 });
 
 function clearForm() {
