@@ -17,9 +17,10 @@ $(document).ready(function () {
 	});
 
 	$(".alink").click(function () {
+		var d = new Date();
 		$.post(
-			'post/add_comment',
-			{"id" : $(this).data("id")},
+			'post/sawsaw',
+			{"id" : $(this).data("id"),"sid":d.getTime()},
 			function (data) {
 				switch (data.status) {
 					case "ERROR":
@@ -29,12 +30,11 @@ $(document).ready(function () {
 						window.location.replace("/");
 						break;
 					case "OK":
-						console.log(data);
+						$("#sawsaw-pane-"+data.uid).show();
 						break;
 				}
 			},
 			'json');
-
 		return false;
 	});
 

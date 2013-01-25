@@ -145,7 +145,7 @@ class Controller_Post extends Controller {
 		}
 	}
 
-	public function action_add_comment()
+	public function action_sawsaw()
 	{
 //		echo $this->request->is_ajax();
 //		Helper_Util::pr($this->request->post());
@@ -155,7 +155,11 @@ class Controller_Post extends Controller {
 			if ($session)
 			{
 				// post comment now
-				$result = array('here');
+				$result = array(
+					'status'  => 'OK',
+					'message' => 'okay',
+					'uid'     => $this->request->post('id')
+				);
 			}
 			else
 			{

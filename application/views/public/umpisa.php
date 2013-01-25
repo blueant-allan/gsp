@@ -38,6 +38,11 @@
 						'data-id' => $item->id
 					));
 					echo '</div>';
+
+					echo '<div id="sawsaw-pane-',$item->id,'" class="yellow-highlight" style="display:none">';
+					echo Html::image('',array('id' => 'uuid-'.$item->id,'style' => 'height:23px;margin-right:5px;'));
+					echo Form::input('commento','',array());
+					echo '</div>';
 				?>
 				</div>
 			</div>
