@@ -1,3 +1,8 @@
+<?php
+$session      = Session::instance()->get('user',NULL);
+$user_picture = ($session) ? $session['picture'] : 'none.jpeg';
+//Helper_Util::pr($session);
+?>
 
 	<div class="row-fluid">
 		<div class="span6">
@@ -40,8 +45,11 @@
 					echo '</div>';
 
 					echo '<div id="sawsaw-pane-',$item->id,'" class="yellow-highlight" style="display:none">';
-					echo Html::image('',array('id' => 'uuid-'.$item->id,'style' => 'height:23px;margin-right:5px;'));
-					echo Form::input('commento','',array());
+					echo Html::image($user_picture,array('id' => 'uuid-'.$item->id,'style' => 'height:40px;margin-right:5px;'));
+					echo Form::input('commento','',array(
+						'id' => 'comment-f-uid-'.$item->id,
+						'class' => 'comment-f'
+					));
 					echo '</div>';
 				?>
 				</div>
